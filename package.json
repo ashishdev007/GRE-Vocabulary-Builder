@@ -1,0 +1,31 @@
+{
+  "name": "gre-vocabulary-builder",
+  "version": "1.0.0",
+  "description": "This app helps users build their vocabulary for GRE as well as other general purposes.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "testServ": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishdev007/GRE-Vocabulary-Builder.git"
+  },
+  "author": "Shrill Shrestha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishdev007/GRE-Vocabulary-Builder/issues"
+  },
+  "homepage": "https://github.com/ashishdev007/GRE-Vocabulary-Builder#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.20"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
