@@ -3,7 +3,7 @@ const Word = require('../Models/word');
 exports.getWords = (req, res, next)=>{
     words = {wordList:[]};
     
-    //database retrival
+    
     
     res.json(words);
 }
@@ -31,5 +31,6 @@ exports.postWord = (req, res, next) => {
     })
     .catch(err=>{
         console.log(err);
+        res.status(403).json({message:"There is an Error!"})
     })
 }
