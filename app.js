@@ -16,8 +16,8 @@ app.use('/', learnRoute);
 //Database connection and server listener
 mongoose.connect(uri,{useNewUrlParser:true, useUnifiedTopology: true, useFindAndModify: false})
 .then(connection=>{
-    app.listen(3000, ()=>{
-        console.log("Running in 3000!");
+    app.listen(8000, ()=>{
+        console.log("Running in 8000!");
     });
 })
 .catch(err=>{
