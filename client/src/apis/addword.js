@@ -1,18 +1,20 @@
 import { backendURL } from './backend';
 
 export const getNewWordDefs = (setDefs, word) => {
+  console.log(`${backendURL}/word/${word}`);
   fetch(`${backendURL}/word/${word}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: { word },
   })
-    .then((res) => {
+    .then(async (res) => {
+      let response = await res.json();
+      console.log('Here');
       if (res.ok) {
-        return res.json();
+        return response;
       } else {
-        throw res.json();
+        throw response;
       }
     })
     .then((data) => {

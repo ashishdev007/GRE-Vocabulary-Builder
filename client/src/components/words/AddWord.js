@@ -5,12 +5,12 @@ import styles from '../../css/AddWord.module.css';
 
 const AddWord = () => {
   const [word, setWord] = useState('');
-  //   const [defs, setDefs] = useState([
-  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  //     'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  //     'Duis aute irure dolor in reprehenderit in voluptate velit esse',
-  //   ]);
-  const [defs, setDefs] = useState([]);
+  const [defs, setDefs] = useState([
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse',
+  ]);
+  //   const [defs, setDefs] = useState([]);
 
   const getDefs = () => {
     let key = 0;
@@ -22,7 +22,11 @@ const AddWord = () => {
           <div
             className={`${styles.Definition} ui segment option`}
             key={key}
-            onClick={() => {}}
+            onClick={(event) => {
+              let style = event.target.style;
+              style.color = 'red';
+              console.log(style);
+            }}
           >
             {item}
           </div>
@@ -37,6 +41,7 @@ const AddWord = () => {
         className={`ui form`}
         onSubmit={(event) => {
           event.preventDefault();
+          console.log('Enter');
           getNewWordDefs(setDefs, word);
         }}
       >
