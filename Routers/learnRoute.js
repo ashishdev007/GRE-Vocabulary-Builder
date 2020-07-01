@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const learnerRoute = require('../controller/learn');
+const learnerRoute = require('../Controllers/learn');
 
 router.get('/', learnerRoute.getWords);
 
