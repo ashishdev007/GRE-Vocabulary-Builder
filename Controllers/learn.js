@@ -4,19 +4,18 @@ exports.getWords = (req, res, next)=>{
     words = {wordList:[]};
     
     
-    
     res.json(words);
 }
 
 exports.postWord = (req, res, next) => {
     const wordName = req.body.word.toUpperCase();
-    const meaning = req.body.meaning;
+    const meanings = req.body.meanings;
     const result = {};
 
     Word.findOne({name: wordName})
     .then(word=>{
         if(!word){
-            return Word.create({name: wordName, meaning: meaning});
+            return Word.create({name: wordName, meanings});
         }
         return word;
     })

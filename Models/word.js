@@ -6,7 +6,7 @@ const wordSchema = new Schema({
     name: {
         type: String,
         required: true},
-    meaning:[
+    meanings:[
             {type: String, required: true}
     ]
 });
