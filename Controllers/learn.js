@@ -3,22 +3,37 @@ const RandGen = require('../utils/randomDoc');
 
 exports.getWord = (req, res, next) => {
   words = { wordList: [] };
-  RandGen.generateRandom()
+  const number_of_questions = req.params.questions;
+  RandGen.generateRandom(number_of_questions)
     .then((wordLst) => {
-      let index = 0;
-      words.wordList = wordLst.map((wrd) => {
+      const questionList = wordLst.slice(0, number_of_questions);
+      const optionList = wordLst.slice(number_of_questions);
+      let i = 0;
+      let index = [0, 1, 2, 3];
+      const opts = ['', '', '', ''];
+      words.wordList = questionList.map((wrd) => {
         const rt =
           wrd.meanings[Math.floor(Math.random() * wrd.meanings.length)];
-        const opts = [rt];
-        let i = 1;
-        while (i <= 3) {
-          j = (index + i) % wordLst.length;
-          const tempObj = wordLst[j].meanings;
-          opts.push(tempObj[Math.floor(Math.random() * tempObj.length)]);
+
+        //generates a random index to put the option in the opt array
+        let ind = Math.floor(Math.random() * index.length);
+        let k = index.splice(ind, 1);
+
+        opts[k] = rt;
+
+        let count = 1;
+        while (count <= 3) {
+          const tempObj = optionList[i].meanings;
+
+          let ind = Math.floor(Math.random() * index.length);
+          let k = index.splice(ind, 1);
+
+          opts[k] = tempObj[Math.floor(Math.random() * tempObj.length)];
           i++;
+          count++;
         }
-        index++;
-        return { name: wrd.name, right: rt, options: opts };
+        index = [0, 1, 2, 3];
+        return { name: wrd.name, right: rt, options: [...opts] };
       });
       res.json(words);
     })
