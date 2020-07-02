@@ -9,7 +9,7 @@ exports.getWords = (req, res, next)=>{
 }
 
 exports.postWord = (req, res, next) => {
-    const wordName = req.body.word;
+    const wordName = req.body.word.toUpperCase();
     const meaning = req.body.meaning;
     const result = {};
 
