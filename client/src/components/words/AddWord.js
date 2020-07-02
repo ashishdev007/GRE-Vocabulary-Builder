@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { getNewWordDefs } from '../../apis/addword';
+import { getNewWordDefs, addNewWord } from '../../apis/addword';
 // import { makeStyles } from '@material-ui/core/styles';
 import styles from '../../css/AddWord.module.css';
 
 const AddWord = () => {
   const [word, setWord] = useState('');
-  const [defs, setDefs] = useState([
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse',
-  ]);
-  //   const [defs, setDefs] = useState([]);
+
+  const [defs, setDefs] = useState([]);
+  const [selections, setSelections] = useState([]);
 
   const getDefs = () => {
     let key = 0;
@@ -24,8 +21,8 @@ const AddWord = () => {
             key={key}
             onClick={(event) => {
               let style = event.target.style;
-              style.color = 'red';
-              console.log(style);
+
+              selectDef(item, style);
             }}
           >
             {item}
@@ -35,13 +32,26 @@ const AddWord = () => {
     }
   };
 
+  const selectDef = (def, style) => {
+    if (selections.includes(def)) {
+      style.color = 'rgba(0,0,0,.87)';
+      style.backgroundColor = 'white';
+      let updatedSelections = selections.filter((selected) => selected !== def);
+      setSelections(updatedSelections);
+    } else {
+      style.color = 'white';
+      style.backgroundColor = '#2185d0';
+      setSelections([...selections, def]);
+    }
+  };
+
   return (
     <React.Fragment>
       <form
         className={`ui form`}
         onSubmit={(event) => {
           event.preventDefault();
-          console.log('Enter');
+          setDefs([]);
           getNewWordDefs(setDefs, word);
         }}
       >
@@ -52,13 +62,19 @@ const AddWord = () => {
             value={word}
             onChange={(event) => setWord(event.target.value)}
           />
-          <i class="search icon" type="submit"></i>
+          <i className="search icon" type="submit"></i>
         </div>
       </form>
       {defs.length === 0 ? null : (
         <div style={{ marginTop: '2%' }}>
           <p>Please choose a definition!</p>
           <div className={`ui segments ${styles.Definitions}`}>{getDefs()}</div>
+          <button
+            className="ui inverted olive button"
+            onClick={() => addNewWord(word, selections)}
+          >
+            Olive
+          </button>
         </div>
       )}
     </React.Fragment>

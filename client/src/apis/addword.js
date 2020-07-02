@@ -1,24 +1,44 @@
 import { backendURL } from './backend';
 
 export const getNewWordDefs = (setDefs, word) => {
-  console.log(`${backendURL}/word/${word}`);
   fetch(`${backendURL}/word/${word}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
-    .then(async (res) => {
-      let response = await res.json();
-      console.log('Here');
+    .then((res) => {
       if (res.ok) {
-        return response;
+        return res.json();
       } else {
-        throw response;
+        throw res.json();
       }
     })
     .then((data) => {
       setDefs(data.meanings);
     })
+    .catch((err) => {});
+};
+
+export const addNewWord = (word, meaning) => {
+  console
+    .fetch(`${backendURL}/word`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: {
+        word,
+        meaning,
+      },
+    })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw res.json();
+      }
+    })
+    .then((data) => {})
     .catch((err) => {});
 };
