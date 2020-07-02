@@ -8,22 +8,24 @@ export const getNewWordDefs = (setDefs, word, dispatch) => {
       'Content-Type': 'application/json',
     },
   })
-    .then((res) => {
+    .then(async (res) => {
+      let response = await res.json();
+
       if (res.ok) {
-        return res.json();
+        return response;
       } else {
-        throw res.json();
+        throw response.message;
       }
     })
     .then((data) => {
       setDefs(data.meanings);
     })
-    .catch((err) => {
-      dispatch({ type: actionTypes.wordDoesntExist, payload: err.message });
+    .catch(async (err) => {
+      dispatch({ type: actionTypes.wordDoesntExist, payload: err });
     });
 };
 
-export const addNewWord = (word, meanings, dispatch) => {
+export const addNewWord = (word, meanings, dispatch, setSuccess) => {
   let data = {
     word,
     meanings,
@@ -35,15 +37,20 @@ export const addNewWord = (word, meanings, dispatch) => {
     },
     body: JSON.stringify(data),
   })
-    .then((res) => {
+    .then(async (res) => {
+      console.log('Lol');
+      let response = await res.json();
       if (res.ok) {
-        return res.json();
+        return response;
       } else {
-        throw res.json();
+        throw response;
       }
     })
-    .then((data) => {})
+    .then((data) => {
+      setSuccess(true);
+    })
     .catch((err) => {
+      console.log(err);
       dispatch({ type: actionTypes.wordAlreadyExist, payload: err.message });
     });
 };

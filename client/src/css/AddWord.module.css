@@ -24,7 +24,7 @@
   cursor: pointer;
 }
 
-.ErrorContainer {
+.MessageContainer {
   margin-top: 7%;
   padding-top: 2%;
 }
@@ -34,6 +34,11 @@
   color: #c40909;
 }
 
-.ErrorContainer > p {
+.SuccessIcon {
+  font-size: 9em !important;
+  color: #21ba45;
+}
+
+.MessageContainer > p {
   font-size: 2em;
 }

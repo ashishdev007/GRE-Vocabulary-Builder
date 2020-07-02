@@ -5,6 +5,7 @@ export const initialState = {
 export const actionTypes = {
   wordDoesntExist: 'wordDoesntExist',
   wordAlreadyExist: 'wordAlreadyExist',
+  clearNewWordErrors: 'clearNewWordErrors',
 };
 
 export const errorsReducer = (state, action) => {
@@ -18,7 +19,7 @@ export const errorsReducer = (state, action) => {
           msg: action.payload,
         },
       };
-    case actionTypes.wordDoesntExist:
+    case actionTypes.wordAlreadyExist:
       return {
         ...state,
         newWordErrors: {
@@ -27,5 +28,14 @@ export const errorsReducer = (state, action) => {
           msg: action.payload,
         },
       };
+    case actionTypes.clearNewWordErrors:
+      return {
+        ...state,
+        newWordErrors: {
+          ...initialState.newWordErrors,
+        },
+      };
+    default:
+      return state;
   }
 };
