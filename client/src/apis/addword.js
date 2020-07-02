@@ -20,7 +20,7 @@ export const getNewWordDefs = (setDefs, word) => {
     .catch((err) => {});
 };
 
-export const addNewWord = (word, meaning) => {
+export const addNewWord = (word, meanings) => {
   fetch(`${backendURL}/word`, {
     method: 'POST',
     headers: {

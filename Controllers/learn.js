@@ -9,13 +9,13 @@ exports.getWord = (req, res, next)=>{
         const questionList = wordLst.slice(0, number_of_questions);
         const optionList = wordLst.slice(number_of_questions);
         let i = 0;
-        const index = [0,1,2,3];
+        let index = [0,1,2,3];
         const opts = ["", "", "", ""];
         words.wordList = questionList.map(wrd=>{
             const rt = wrd.meanings[Math.floor(Math.random()*wrd.meanings.length)];
             
             //generates a random index to put the option in the opt array
-            let ind = Math.floor(Math.random()*index.length)
+            let ind = Math.floor(Math.random()*index.length);
             let k = index.splice(ind, 1);
 
             opts[k] = rt;
@@ -31,8 +31,8 @@ exports.getWord = (req, res, next)=>{
                 i++;
                 count++;
             }
-            index++;
-            return {name: wrd.name, right:rt, options:opts}
+            index = [0,1,2,3];
+            return {name: wrd.name, right:rt, options:[...opts]}
         });
         res.json(words);
     })
