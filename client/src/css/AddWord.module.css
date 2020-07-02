@@ -1,0 +1,25 @@
+.SearchForm {
+  width: 50%;
+  height: 3em;
+  margin-top: 2%;
+  font-size: 1.15em !important;
+  font-family: 'Lato';
+}
+
+.SearchItem {
+  padding-left: 2%;
+  width: 90%;
+}
+
+.Definitions {
+  width: 50%;
+  margin: auto !important;
+  margin-top: 2%;
+  border: 1.25px solid rgba(34, 36, 38, 0.15) !important;
+}
+
+.Definition {
+  font-size: 1.25em !important;
+  font-weight: 300;
+  cursor: pointer;
+}
