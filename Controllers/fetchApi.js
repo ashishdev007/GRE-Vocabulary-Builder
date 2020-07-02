@@ -19,7 +19,7 @@ exports.getMeaning = (req, res, next) =>{
           res.json({meanings:defs})
         })
         .catch((error)=>{
-          console.log(error);
+          res.status(403).json({message:`${wordName} is not defined. Please use a valid word.`});
     });
 }
 
