@@ -23,3 +23,17 @@
   font-weight: 300;
   cursor: pointer;
 }
+
+.ErrorContainer {
+  margin-top: 7%;
+  padding-top: 2%;
+}
+
+.ErrorIcon {
+  font-size: 9em !important;
+  color: #c40909;
+}
+
+.ErrorContainer > p {
+  font-size: 2em;
+}

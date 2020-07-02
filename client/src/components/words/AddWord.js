@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { getNewWordDefs, addNewWord } from '../../apis/addword';
-// import { makeStyles } from '@material-ui/core/styles';
+import { errorsReducer, initialState } from '../../reducers/errorsReducer';
 import styles from '../../css/AddWord.module.css';
 
 const AddWord = () => {
   const [word, setWord] = useState('');
-
   const [defs, setDefs] = useState([]);
   const [selections, setSelections] = useState([]);
+  const [state, dispatch] = useReducer(errorsReducer, initialState);
 
   const getDefs = () => {
     let key = 0;
@@ -21,7 +21,6 @@ const AddWord = () => {
             key={key}
             onClick={(event) => {
               let style = event.target.style;
-
               selectDef(item, style);
             }}
           >
@@ -52,7 +51,7 @@ const AddWord = () => {
         onSubmit={(event) => {
           event.preventDefault();
           setDefs([]);
-          getNewWordDefs(setDefs, word);
+          getNewWordDefs(setDefs, word, dispatch);
         }}
       >
         <div className={`${styles.SearchForm} ui icon input`}>
@@ -71,12 +70,22 @@ const AddWord = () => {
           <div className={`ui segments ${styles.Definitions}`}>{getDefs()}</div>
           <button
             className="ui inverted olive button"
-            onClick={() => addNewWord(word, selections)}
+            onClick={() => {
+              selectDef([]);
+              setWord([]);
+              addNewWord(word, selections, dispatch);
+            }}
           >
             Olive
           </button>
         </div>
       )}
+      {state.newWordErrors.exists ? (
+        <div className={`${styles.ErrorContainer}`}>
+          <i className={`${styles.ErrorIcon} exclamation triangle icon`}></i>
+          <p>Here's Some Error!</p>
+        </div>
+      ) : null}
     </React.Fragment>
   );
 };

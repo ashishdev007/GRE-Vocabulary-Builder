@@ -1,6 +1,7 @@
 import { backendURL } from './backend';
+import { actionTypes } from '../reducers/errorsReducer';
 
-export const getNewWordDefs = (setDefs, word) => {
+export const getNewWordDefs = (setDefs, word, dispatch) => {
   fetch(`${backendURL}/word/${word}`, {
     method: 'GET',
     headers: {
@@ -17,19 +18,22 @@ export const getNewWordDefs = (setDefs, word) => {
     .then((data) => {
       setDefs(data.meanings);
     })
-    .catch((err) => {});
+    .catch((err) => {
+      dispatch({ type: actionTypes.wordDoesntExist, payload: err.message });
+    });
 };
 
-export const addNewWord = (word, meaning) => {
+export const addNewWord = (word, meanings, dispatch) => {
+  let data = {
+    word,
+    meanings,
+  };
   fetch(`${backendURL}/word`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: {
-      word,
-      meanings,
-    },
+    body: JSON.stringify(data),
   })
     .then((res) => {
       if (res.ok) {
@@ -39,5 +43,7 @@ export const addNewWord = (word, meaning) => {
       }
     })
     .then((data) => {})
-    .catch((err) => {});
+    .catch((err) => {
+      dispatch({ type: actionTypes.wordAlreadyExist, payload: err.message });
+    });
 };
