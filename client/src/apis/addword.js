@@ -21,17 +21,16 @@ export const getNewWordDefs = (setDefs, word) => {
 };
 
 export const addNewWord = (word, meaning) => {
-  console
-    .fetch(`${backendURL}/word`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: {
-        word,
-        meaning,
-      },
-    })
+  fetch(`${backendURL}/word`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: {
+      word,
+      meanings,
+    },
+  })
     .then((res) => {
       if (res.ok) {
         return res.json();
