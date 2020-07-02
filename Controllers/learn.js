@@ -3,7 +3,7 @@ const RandGen = require('../utils/randomDoc');
 
 exports.getWord = (req, res, next)=>{
     words = {wordList:[]};
-    const number_of_questions = req.body.questions;
+    const number_of_questions = req.params.questions;
     RandGen.generateRandom(number_of_questions)
     .then(wordLst=>{
         const questionList = wordLst.slice(0, number_of_questions);
