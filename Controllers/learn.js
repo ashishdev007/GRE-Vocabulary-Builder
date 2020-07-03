@@ -1,11 +1,10 @@
 const Word = require('../Models/word');
 const RandGen = require('../utils/randomDoc');
 
-<<<<<<< HEAD
 exports.getWord = (req, res, next)=>{
     words = {wordList:[]};
     const number_of_questions =  Number(req.params.questions);
-    const total_retrival = number_of_questions * 3 + number_of_questions;
+    const total_retrival = number_of_questions * 4;
     Word.countDocuments().then((docNum)=>{
         if(docNum >= total_retrival){
             RandGen.generateRandom(total_retrival)
@@ -21,74 +20,16 @@ exports.getWord = (req, res, next)=>{
                     //generates a random index to put the option in the opt array
                     let ind = Math.floor(Math.random()*index.length);
                     let k = index.splice(ind, 1);
-||||||| f871bda
-exports.getWord = (req, res, next)=>{
-    words = {wordList:[]};
-    const number_of_questions = req.body.questions;
-    RandGen.generateRandom(number_of_questions)
-    .then(wordLst=>{
-        const questionList = wordLst.slice(0, number_of_questions);
-        const optionList = wordLst.slice(number_of_questions);
-        let i = 0;
-        let index = [0,1,2,3];
-        const opts = ["", "", "", ""];
-        words.wordList = questionList.map(wrd=>{
-            const rt = wrd.meanings[Math.floor(Math.random()*wrd.meanings.length)];
-            
-            //generates a random index to put the option in the opt array
-            let ind = Math.floor(Math.random()*index.length);
-            let k = index.splice(ind, 1);
-=======
-exports.getWord = (req, res, next) => {
-  words = { wordList: [] };
-  const number_of_questions = req.params.questions;
-  RandGen.generateRandom(number_of_questions)
-    .then((wordLst) => {
-      const questionList = wordLst.slice(0, number_of_questions);
-      const optionList = wordLst.slice(number_of_questions);
-      let i = 0;
-      let index = [0, 1, 2, 3];
-      const opts = ['', '', '', ''];
-      words.wordList = questionList.map((wrd) => {
-        const rt =
-          wrd.meanings[Math.floor(Math.random() * wrd.meanings.length)];
->>>>>>> 0135cc81a4b0e3ca58ffbee3c6d3c7de9c0d6576
 
-<<<<<<< HEAD
                     opts[k] = rt;
-||||||| f871bda
-            opts[k] = rt;
-=======
-        //generates a random index to put the option in the opt array
-        let ind = Math.floor(Math.random() * index.length);
-        let k = index.splice(ind, 1);
->>>>>>> 0135cc81a4b0e3ca58ffbee3c6d3c7de9c0d6576
 
-<<<<<<< HEAD
                     let count = 1;
                     while(count <= 3){
                         const tempObj = optionList[i].meanings;
-||||||| f871bda
-            let count = 1;
-            while(count <= 3){
-                const tempObj = optionList[i].meanings;
-=======
-        opts[k] = rt;
->>>>>>> 0135cc81a4b0e3ca58ffbee3c6d3c7de9c0d6576
 
-<<<<<<< HEAD
                         let ind = Math.floor(Math.random()*index.length)
                         let k = index.splice(ind, 1);
-||||||| f871bda
-                let ind = Math.floor(Math.random()*index.length)
-                let k = index.splice(ind, 1);
-=======
-        let count = 1;
-        while (count <= 3) {
-          const tempObj = optionList[i].meanings;
->>>>>>> 0135cc81a4b0e3ca58ffbee3c6d3c7de9c0d6576
 
-<<<<<<< HEAD
                         opts[k] = tempObj[Math.floor(Math.random()*tempObj.length)];
                         i++;
                         count++;
@@ -105,43 +46,9 @@ exports.getWord = (req, res, next) => {
         }else{
             throw "err";
         }
-||||||| f871bda
-                opts[k] = tempObj[Math.floor(Math.random()*tempObj.length)];
-                i++;
-                count++;
-            }
-            index = [0,1,2,3];
-            return {name: wrd.name, right:rt, options:[...opts]}
-        });
-        res.json(words);
-=======
-          let ind = Math.floor(Math.random() * index.length);
-          let k = index.splice(ind, 1);
-
-          opts[k] = tempObj[Math.floor(Math.random() * tempObj.length)];
-          i++;
-          count++;
-        }
-        index = [0, 1, 2, 3];
-        return { name: wrd.name, right: rt, options: [...opts] };
-      });
-      res.json(words);
->>>>>>> 0135cc81a4b0e3ca58ffbee3c6d3c7de9c0d6576
     })
-<<<<<<< HEAD
     .catch(err=>{
         res.status(403).json({message:`You need at least ${total_retrival} words saved in your list to proceed for ${number_of_questions} questions`})
-||||||| f871bda
-    .catch(err=>{
-        console.log(err);
-        res.status(403).json({message: "Can't fetch the any word. Something went wrong."})
-=======
-    .catch((err) => {
-      console.log(err);
-      res
-        .status(403)
-        .json({ message: "Can't fetch the any word. Something went wrong." });
->>>>>>> 0135cc81a4b0e3ca58ffbee3c6d3c7de9c0d6576
     });
 };
 
@@ -173,3 +80,27 @@ exports.postWord = (req, res, next) => {
       res.status(403).json({ message: "Can't add to the Database" });
     });
 };
+
+exports.postAttempt = (req, res, next)=>{
+    const word = req.body.name;
+    const attempStatus = req.body.success;
+
+    Word.findOne(word)
+    .then(wrd=>{
+        if(wrd){
+            wrd.attempts += 1;
+            if(attempStatus){
+                wrd.successAttempts += 1;
+            }
+            return wrd.save();
+        }else{
+            throw "No Word Found";
+        }
+    })
+    .then(result=>{
+        res.status(200).json({message: "Word Status Updated"});
+    })
+    .catch(err=>{
+        res.status(403).json({message: "Word status couldn't be updated! Something went wrong."})
+    })
+}
