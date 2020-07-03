@@ -1,7 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import { getNewWordDefs, addNewWord } from '../../apis/addword';
 import { errorsReducer, initialState } from '../../reducers/errorsReducer';
-import styles from '../../css/AddWord.module.css';
+import '../../css/AddWord.css';
 
 const AddWord = () => {
   const [word, setWord] = useState('');
@@ -18,7 +18,7 @@ const AddWord = () => {
         key++;
         return (
           <div
-            className={`${styles.Definition} ui segment option`}
+            className={`Definition ui segment option`}
             key={key}
             onClick={(event) => {
               event.stopPropagation();
@@ -63,7 +63,7 @@ const AddWord = () => {
           dispatch({ type: 'clearNewWordErrors' });
         }}
       >
-        <div className={`${styles.SearchForm} ui icon input`}>
+        <div className={`SearchForm ui icon input`}>
           <input
             type="text"
             placeholder="Search..."
@@ -76,7 +76,7 @@ const AddWord = () => {
       {defs.length === 0 ? null : (
         <div style={{ marginTop: '2%' }}>
           <p>Please choose a definition!</p>
-          <div className={`ui segments ${styles.Definitions}`}>{getDefs()}</div>
+          <div className={`ui segments Definitions}`}>{getDefs()}</div>
           <button
             className="ui inverted olive button"
             onClick={(event) => {
@@ -84,7 +84,6 @@ const AddWord = () => {
               setDefs([]);
               setWord([]);
               addNewWord(word, selections, dispatch, setSuccess);
-              console.log('lsdfhgsdflhgs');
             }}
           >
             Olive
@@ -92,14 +91,14 @@ const AddWord = () => {
         </div>
       )}
       {state.newWordErrors.exists ? (
-        <div className={`${styles.MessageContainer}`}>
-          <i className={`${styles.ErrorIcon} exclamation triangle icon`}></i>
+        <div className={`MessageContainer`}>
+          <i className={`ErrorIcon exclamation triangle icon`}></i>
           <p>{state.newWordErrors.msg}</p>
         </div>
       ) : null}
       {success ? (
-        <div className={`${styles.MessageContainer}`}>
-          <i className={`${styles.SuccessIcon} save outline icon`}></i>
+        <div className={`MessageContainer`}>
+          <i className={`SuccessIcon save outline icon`}></i>
           <p>Successfully added your word!</p>
         </div>
       ) : null}

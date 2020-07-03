@@ -3,7 +3,7 @@ import { actionTypes } from '../reducers/practiceReducer';
 
 export const getQuestions = (dispatch) => {
   dispatch({ type: actionTypes.loadingquestions });
-  fetch(`${backendURL}/practise`, {
+  fetch(`${backendURL}/practise/5`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -19,8 +19,6 @@ export const getQuestions = (dispatch) => {
       }
     })
     .then((data) => {
-      console.log(data.wordList);
-
       dispatch({ type: actionTypes.questionsLoaded, payload: data.wordList });
     })
     .catch(async (err) => {
