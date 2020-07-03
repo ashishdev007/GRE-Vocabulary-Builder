@@ -82,10 +82,10 @@ exports.postWord = (req, res, next) => {
 };
 
 exports.postAttempt = (req, res, next)=>{
-    const word = req.body.name;
-    const attempStatus = req.body.success;
-
-    Word.findOne(word)
+    const word = req.body.name.trim().toUpperCase();
+    const attempStatus = req.body.success.trim() === "true";
+    console.log(attempStatus);
+    Word.findOne({name:word})
     .then(wrd=>{
         if(wrd){
             wrd.attempts += 1;
