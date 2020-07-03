@@ -4,7 +4,7 @@ const RandGen = require('../utils/randomDoc');
 exports.getWord = (req, res, next) => {
   words = { wordList: [] };
   const number_of_questions = Number(req.params.questions);
-  const total_retrival = number_of_questions * 3 + number_of_questions;
+  const total_retrival = number_of_questions * 4;
   Word.countDocuments()
     .then((docNum) => {
       if (docNum >= total_retrival) {
@@ -43,22 +43,18 @@ exports.getWord = (req, res, next) => {
           })
           .catch((err) => {
             console.log(err);
-            res
-              .status(403)
-              .json({
-                message: "Can't fetch the any word. Something went wrong.",
-              });
+            res.status(403).json({
+              message: "Can't fetch the any word. Something went wrong.",
+            });
           });
       } else {
         throw 'err';
       }
     })
     .catch((err) => {
-      res
-        .status(403)
-        .json({
-          message: `You need at least ${total_retrival} words saved in your list to proceed for ${number_of_questions} questions`,
-        });
+      res.status(403).json({
+        message: `You need at least ${total_retrival} words saved in your list to proceed for ${number_of_questions} questions`,
+      });
     });
 };
 
@@ -88,5 +84,31 @@ exports.postWord = (req, res, next) => {
     .catch((err) => {
       console.log(err);
       res.status(403).json({ message: "Can't add to the Database" });
+    });
+};
+
+exports.postAttempt = (req, res, next) => {
+  const word = req.body.name.trim().toUpperCase();
+  const attempStatus = req.body.success.trim() === 'true';
+  console.log(attempStatus);
+  Word.findOne({ name: word })
+    .then((wrd) => {
+      if (wrd) {
+        wrd.attempts += 1;
+        if (attempStatus) {
+          wrd.successAttempts += 1;
+        }
+        return wrd.save();
+      } else {
+        throw 'No Word Found';
+      }
+    })
+    .then((result) => {
+      res.status(200).json({ message: 'Word Status Updated' });
+    })
+    .catch((err) => {
+      res.status(403).json({
+        message: "Word status couldn't be updated! Something went wrong.",
+      });
     });
 };

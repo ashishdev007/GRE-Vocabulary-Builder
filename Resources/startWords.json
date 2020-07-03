@@ -1,0 +1,437 @@
+[
+  {
+    "name": "INTROSPECTION",
+    "meanings": ["examining one's own thoughts and feelings"]
+  },
+  { "name": "PHILANTHROPIST", "meanings": ["one who loves mankind"] },
+  {
+    "name": "ANTIDOTE",
+    "meanings": ["medicine used against a poison or a disease"]
+  },
+  { "name": "STRIVE", "meanings": ["to make great efforts, to struggle"] },
+  {
+    "name": "AMBIDEXTROUS",
+    "meanings": ["able to use the left hand or the right equally well"]
+  },
+  {
+    "name": "PRECURSORS",
+    "meanings": ["a person or thing that precedes, as in a  process or job."]
+  },
+  { "name": "RETROSPECTIVE", "meanings": ["Looking back on past"] },
+  { "name": "INTROVERT", "meanings": ["one who turns towards himself"] },
+  { "name": "AMBIGUOUS", "meanings": ["doubtful", "uncertain"] },
+  { "name": "GERONTOCRACY", "meanings": ["government ruled by old people"] },
+  { "name": "AGGRAVATE", "meanings": ["make worse", "irritate"] },
+  { "name": "BRAGGART", "meanings": ["boastful"] },
+  { "name": "ENTICE", "meanings": ["attract, lure"] },
+  { "name": "EQUILIBRIUM", "meanings": ["state of being balanced"] },
+  { "name": "ALLEVIATE", "meanings": ["make (pain) easier to bear"] },
+  { "name": "ADORN", "meanings": ["add beauty", "decorate"] },
+  {
+    "name": "MALEVOLENT",
+    "meanings": ["malicious", "evil", "having or showing ill will"]
+  },
+  {
+    "name": "CONNOTE",
+    "meanings": ["Suggest or imply in addition to the precise, literal meaning"]
+  },
+  { "name": "ABHOR", "meanings": ["to hate", "to detest"] },
+  { "name": "AGILE", "meanings": ["active", "quick-moving"] },
+  { "name": "ENDEAVOR", "meanings": ["to make an effort, to try very hard"] },
+  { "name": "STRAY", "meanings": ["wander lose one's way"] },
+  { "name": "RENOVATE", "meanings": ["restore something to better condition"] },
+  { "name": "CURRICULUM", "meanings": ["course of study"] },
+  { "name": "AMALGAMATE", "meanings": ["mix", "combine", "unite societies"] },
+  { "name": "DROWSINESS", "meanings": ["feeling sleepy half asleep"] },
+  { "name": "DISROBE", "meanings": ["undress"] },
+  {
+    "name": "XENOPHILE (ZEN-UH-FAHYL)",
+    "meanings": ["a person who is attracted to foreign peoples cultures"]
+  },
+  {
+    "name": "SUFFOCATE",
+    "meanings": ["cause or have difficulty in breathing"]
+  },
+  { "name": "SEQUENCE", "meanings": ["succession connected line of"] },
+  { "name": "SCENT", "meanings": ["smell (especially pleasant)"] },
+  { "name": "SPORADIC", "meanings": ["happening from time to time"] },
+  { "name": "AFFINITY", "meanings": ["close connection", "relationship"] },
+  { "name": "AUDACIOUS", "meanings": ["Bold"] },
+  { "name": "HETEROGENEOUS", "meanings": ["made up of different kinds"] },
+  { "name": "ANIMOSITY", "meanings": ["strong dislike"] },
+  { "name": "FRAGILE", "meanings": ["easily injured broken or destroyed"] },
+  {
+    "name": "ACUMEN",
+    "meanings": ["Keen, quick, accurate insight or judgment"]
+  },
+  { "name": "LEGACY", "meanings": ["Bequest or inheritance"] },
+  {
+    "name": "MASSACRE",
+    "meanings": ["cruel killing of a large number of people"]
+  },
+  {
+    "name": "SUBMERGE",
+    "meanings": ["put under water liquid sink out of sight"]
+  },
+  { "name": "COMBUSTION", "meanings": ["process of burning"] },
+  {
+    "name": "ADULTERATION",
+    "meanings": ["making unpure", "poorer in quality"]
+  },
+  { "name": "APPEASE", "meanings": ["make quiet or calm"] },
+  {
+    "name": "PREMATURE",
+    "meanings": ["doing or happening something before the right time"]
+  },
+  {
+    "name": "INQUEST",
+    "meanings": [
+      "Legal or judicial inquiry, especially before a jury and especially made by a coroner into the cause of someone.s death"
+    ]
+  },
+  { "name": "SHUNNED", "meanings": ["avoided, kept away from"] },
+  { "name": "CONCEAL", "meanings": ["hide keep secret"] },
+  { "name": "ANGUISH", "meanings": ["severe suffering"] },
+  { "name": "INDIGENOUS", "meanings": ["native"] },
+  { "name": "APT", "meanings": ["well-suited", "quick-witted"] },
+  { "name": "CORRELATE", "meanings": ["have a mutual relation"] },
+  { "name": "GRUMBLE", "meanings": ["to complain"] },
+  { "name": "OFFHAND", "meanings": ["Without preparation or forethought"] },
+  {
+    "name": "SOMERSAULT",
+    "meanings": ["rolling backward or forward (not sideways) movement"]
+  },
+  {
+    "name": "EXTINGUISH",
+    "meanings": ["end the existence of/wipe or put out"]
+  },
+  { "name": "EDIBLE", "meanings": ["fit to be eaten/not poisonous"] },
+  { "name": "CONJOIN", "meanings": ["to join together"] },
+  { "name": "SURCHARGE", "meanings": ["additional load/charge"] },
+  { "name": "ACCOLADE", "meanings": ["praise", "approval"] },
+  {
+    "name": "DISALLOW",
+    "meanings": ["refuse to allow or accept as a correct"]
+  },
+  {
+    "name": "OPAQUENESS",
+    "meanings": ["dullness/not allowing light to pass through"]
+  },
+  { "name": "IMPERMEABLE", "meanings": ["that cannot be permeated"] },
+  { "name": "CONSOLE", "meanings": ["give comfort or sympathy to"] },
+  { "name": "TIMID", "meanings": ["shy easily frightened"] },
+  { "name": "ABSCOND", "meanings": ["to go away suddenly (to avoid arrest)"] },
+  { "name": "ABIDE", "meanings": ["be faithful", "to endure"] },
+  {
+    "name": "EMBEZZLE",
+    "meanings": ["use in a wrong way for one's own benefit"]
+  },
+  { "name": "WARRANT", "meanings": ["authority written order guarantee"] },
+  { "name": "REMINISCENT", "meanings": ["suggest something in the past"] },
+  { "name": "EXTINCT", "meanings": ["no longer active"] },
+  {
+    "name": "LOLL",
+    "meanings": ["rest to sit or stand in a lazy way hang (dog's tongue)"]
+  },
+  { "name": "ACCLAIMED", "meanings": ["welcomed with shouts and approval"] },
+  { "name": "CLIENTELE", "meanings": ["customers"] },
+  { "name": "CATALYST", "meanings": ["substance that causes speeding up"] },
+  { "name": "SHALLOW", "meanings": ["little depth", "not earnest"] },
+  { "name": "BRITTLE", "meanings": ["easily broken"] },
+  { "name": "NEGLIGENT", "meanings": ["taking too little care"] },
+  { "name": "AFFABLE", "meanings": ["polite and friendly"] },
+  {
+    "name": "POSEUR",
+    "meanings": ["a person who attempts to impress by acting unlike himself"]
+  },
+  { "name": "DANGLE", "meanings": ["hand or swing loosely"] },
+  { "name": "MORIBUND", "meanings": ["in a dying state", "near death"] },
+  { "name": "ASCEND", "meanings": ["go or come up"] },
+  { "name": "RELAPSE", "meanings": ["fall back again"] },
+  { "name": "ASTERISK", "meanings": ["the mark * (e.g.. omitted letters)"] },
+  { "name": "YARN", "meanings": ["tale story fibers for knitting"] },
+  {
+    "name": "ARROGANCE",
+    "meanings": ["proud", "superior manner of behaviour"]
+  },
+  { "name": "SALVAGE", "meanings": ["the saving of property from loss"] },
+  { "name": "LIVID", "meanings": ["Furiously angry, enraged"] },
+  { "name": "DIVERGENCE", "meanings": ["getting farther apart from a point"] },
+  {
+    "name": "REJUVENATION",
+    "meanings": ["becoming young in nature or appearance"]
+  },
+  { "name": "ALLEGIANCE", "meanings": ["duty support loyalty"] },
+  { "name": "VIGOROUS", "meanings": ["strong energetic"] },
+  { "name": "DULLARD", "meanings": ["a stupid, insensitive person"] },
+  { "name": "DWARF", "meanings": ["person much smaller the usual size"] },
+  { "name": "FRAGRANT", "meanings": ["sweet-smelling"] },
+  { "name": "JUDICIOUS", "meanings": ["sound in judgment", "wise"] },
+  {
+    "name": "NIHILISM",
+    "meanings": ["total rejection of all religious and moral beliefs"]
+  },
+  { "name": "ODOR", "meanings": ["smell"] },
+  { "name": "SCRIBBLE", "meanings": ["write hastily"] },
+  { "name": "HOSPITABLE", "meanings": ["liking to give hospitality"] },
+  { "name": "NARCISSISM", "meanings": ["Self-love"] },
+  { "name": "SAWDUST", "meanings": ["tiny bits of wood"] },
+  { "name": "AMELIORATE", "meanings": ["improve", "make better"] },
+  { "name": "INGEST", "meanings": ["take in by swallowing"] },
+  { "name": "GAIT", "meanings": ["a manner of walking, stepping, or running"] },
+  { "name": "SLUGGARD", "meanings": ["lazy slow-moving person"] },
+  { "name": "SUCCUMB", "meanings": ["yield, die"] },
+  { "name": "REITERATE", "meanings": ["say or do again several times"] },
+  { "name": "FLOP", "meanings": ["fail/move/fall clumsily"] },
+  { "name": "DEFER", "meanings": ["postpone"] },
+  {
+    "name": "OSSIFIED",
+    "meanings": ["turned to bone", "hardened like bone", "Inflexible"]
+  },
+  {
+    "name": "ELOQUENCE",
+    "meanings": ["fluent speaking skillful use of language"]
+  },
+  {
+    "name": "DERIVATIVE",
+    "meanings": ["unoriginal", "obtained from another source"]
+  },
+  { "name": "COMMUTER", "meanings": ["person who travels regularly"] },
+  { "name": "CLOT", "meanings": ["half-solid lump formed from liquid"] },
+  { "name": "WEIGH", "meanings": ["measure hoe heavy something is"] },
+  { "name": "STEEPLY", "meanings": ["rising or falling sharply"] },
+  { "name": "TORQUE", "meanings": ["twisting force causing rotation"] },
+  { "name": "BENEFACTOR", "meanings": ["person who has given help"] },
+  { "name": "COMPLAISANT", "meanings": ["trying to please", "obliging"] },
+  { "name": "PLEA", "meanings": ["request"] },
+  {
+    "name": "MODERATION",
+    "meanings": ["quality of being limited", "not extreme"]
+  },
+  { "name": "ENDURING", "meanings": ["lasting"] },
+  { "name": "INVINCIBLE", "meanings": ["too strong to be defeated"] },
+  { "name": "SANITY", "meanings": ["health of mind soundness of judgment"] },
+  { "name": "TURMOIL", "meanings": ["trouble disturbance"] },
+  { "name": "FLIMSY", "meanings": ["lacking solidarity, strength"] },
+  { "name": "TADPOLE", "meanings": ["form of a frog when it leaves the egg"] },
+  { "name": "RECONCILE", "meanings": ["settle a quarrel restore peace"] },
+  { "name": "CRYPTIC", "meanings": ["secret with a hidden meaning"] },
+  {
+    "name": "SPONGE",
+    "meanings": ["porous rubber for washing live at once expense"]
+  },
+  { "name": "COMMEMORATE", "meanings": ["keep the memory of"] },
+  { "name": "SADISTIC", "meanings": ["Cruel"] },
+  { "name": "DOTE", "meanings": ["show much fondness center one's attention"] },
+  { "name": "ENCAPSULATE", "meanings": ["enclose in capsule"] },
+  { "name": "FISSION", "meanings": ["splitting or division (esp. of cells)"] },
+  {
+    "name": "VOLATILE",
+    "meanings": ["changeable inconstant fickle unstable explosive"]
+  },
+  {
+    "name": "ALLOY",
+    "meanings": ["to debase by mixing with something inferior"]
+  },
+  {
+    "name": "DORMANT",
+    "meanings": ["in a state of inactivity but awaiting development"]
+  },
+  { "name": "GALLANT", "meanings": ["brave,behaves well with women"] },
+  {
+    "name": "GRIEVOUS",
+    "meanings": ["causing grief or pain", "serious dire grave"]
+  },
+  { "name": "ENZYME", "meanings": ["catalyst"] },
+  { "name": "SHARD", "meanings": ["A piece of broken pottery"] },
+  {
+    "name": "HYPOCRISY",
+    "meanings": ["falsely making oneself appear to be good"]
+  },
+  { "name": "ERADICATE", "meanings": ["get rid of pull up by the roots"] },
+  { "name": "CHISEL", "meanings": ["steel tool for shaping materials"] },
+  { "name": "INFURIATE", "meanings": ["fill with fury or rage"] },
+  { "name": "ENGULF", "meanings": ["swallow up"] },
+  { "name": "EUPHORIA", "meanings": ["elation state of pleasant excitement"] },
+  { "name": "SANCTION", "meanings": ["approval (by authority) penalty"] },
+  { "name": "RENOWNED", "meanings": ["celebrated", "famous"] },
+  { "name": "RIDDLE", "meanings": ["puzzling person or thing"] },
+  { "name": "EVOKE", "meanings": ["call up bring out"] },
+  { "name": "MISCHIEVOUS", "meanings": ["harmful", "causing mischief"] },
+  {
+    "name": "IMPLICIT",
+    "meanings": ["implied though", "not plainly expressed"]
+  },
+  { "name": "DISPROOF", "meanings": ["proof to the contrary"] },
+  { "name": "MISOGYNIST", "meanings": ["one who hates women/females"] },
+  { "name": "ABYSMAL", "meanings": ["extreme bad"] },
+  { "name": "WRIT", "meanings": ["written order"] },
+  { "name": "PERTAIN", "meanings": ["belong as a part have reference"] },
+  { "name": "ERRATIC", "meanings": ["irregular in behaviour or opinion"] },
+  { "name": "METICULOUS", "meanings": ["giving great attention to details"] },
+  { "name": "IMPROMPTU", "meanings": ["without preparation"] },
+  {
+    "name": "INCLINED",
+    "meanings": ["directing the mind in a certain direction"]
+  },
+  { "name": "CONSTRICT", "meanings": ["make tight or smaller"] },
+  { "name": "PERISH", "meanings": ["be destroyed decay"] },
+  { "name": "LAMBASTE", "meanings": ["attack verbally"] },
+  { "name": "LUMINARY", "meanings": ["star", "light-giving body"] },
+  { "name": "DUPE", "meanings": ["cheat make a fool of"] },
+  { "name": "AUXILIARY", "meanings": ["helping", "supporting"] },
+  { "name": "EXTRALEGAL", "meanings": ["outside the law"] },
+  {
+    "name": "AMBIVALENT",
+    "meanings": ["having both of two contrary meanings"]
+  },
+  { "name": "TONIC", "meanings": ["something giving strength or energy"] },
+  { "name": "ENDORSE", "meanings": ["write one's name on the back of"] },
+  { "name": "TURBULENCE", "meanings": ["being uncontrollably violent"] },
+  {
+    "name": "CONNOISSEUR",
+    "meanings": ["a person with good judgement (e.g.. in art)"]
+  },
+  {
+    "name": "INDISTINCT",
+    "meanings": ["not easily heard", "seen clearly marked"]
+  },
+  { "name": "ABSTRUSE", "meanings": ["difficult to comprehend", "obscure"] },
+  { "name": "LIMP", "meanings": ["lacking strength", "walking unevenly"] },
+  {
+    "name": "PARENTHESIS",
+    "meanings": ["sentence within another one something separated"]
+  },
+  { "name": "SOPHISTICATED", "meanings": ["complex", "subtle", "refined"] },
+  { "name": "ABERRATION", "meanings": ["straying away from what is normal"] },
+  {
+    "name": "RECUPERATE",
+    "meanings": ["become strong after illness loss exhaustion"]
+  },
+  { "name": "PERJURY", "meanings": ["willful FALSE statement unlawful act"] },
+  { "name": "MITE", "meanings": ["A very small amount, portion, or particle"] },
+  {
+    "name": "PEST",
+    "meanings": ["destructive thing or a person who is nuisance"]
+  },
+  {
+    "name": "PLUCK",
+    "meanings": ["pull the feathers off pick (e.g.. flowers)"]
+  },
+  { "name": "SATIATE", "meanings": ["satisfy fully"] },
+  { "name": "COLLOQUIAL", "meanings": ["involving or using conversation."] },
+  {
+    "name": "YEOMAN",
+    "meanings": ["man owning small estate", "middle-class farmer"]
+  },
+  { "name": "AIL", "meanings": ["to cause pain, uneasiness, or trouble to."] },
+  { "name": "FIDELITY", "meanings": ["loyalty accuracy"] },
+  { "name": "MESMERIZE", "meanings": ["hypnotize"] },
+  { "name": "PARADIGM", "meanings": ["a model example or pattern"] },
+  { "name": "GULLIBLE", "meanings": ["easily gulled"] },
+  { "name": "SOBRIETY", "meanings": ["quality or condition of being sober"] },
+  { "name": "DISLODGE", "meanings": ["move force from the place occupied"] },
+  { "name": "FLEET", "meanings": ["number of ships", "quick-moving"] },
+  {
+    "name": "ARTICULATE",
+    "meanings": ["speak distinctly", "connect by joints"]
+  },
+  { "name": "TRACTABLE", "meanings": ["easily controlled or guided"] },
+  {
+    "name": "PARTISAN",
+    "meanings": ["one-sided committed to a party biased or prejudiced"]
+  },
+  { "name": "PREDOMINATE", "meanings": ["have more power than others"] },
+  { "name": "FOOLPROOF", "meanings": ["incapable of failure or error"] },
+  { "name": "SUFFICE", "meanings": ["be enough"] },
+  { "name": "PERMEATE", "meanings": ["spread into every part of"] },
+  {
+    "name": "SPEAR",
+    "meanings": ["weapon with a metal point on a long shaft"]
+  },
+  { "name": "SOLVENT", "meanings": ["of the power of forming a solution"] },
+  { "name": "PRESENTIMENT", "meanings": ["anticipatory fear", "premonition"] },
+  { "name": "VIVACIOUS", "meanings": ["lively high-spirited"] },
+  { "name": "COAGULATION", "meanings": ["change to a thick and solid state"] },
+  { "name": "LIBERALITY", "meanings": ["free giving", "generosity"] },
+  {
+    "name": "ELABORATE",
+    "meanings": ["worked out with much care in great detail"]
+  },
+  { "name": "BRASS", "meanings": ["yellow metal (mixing copper and zinc)"] },
+  {
+    "name": "MALLEABLE",
+    "meanings": ["yielding easily shaped", "moldable", "adapting"]
+  },
+  {
+    "name": "PATRON",
+    "meanings": ["regular customer person who gives support"]
+  },
+  { "name": "IMMUTABLE", "meanings": ["that cannot be changed"] },
+  { "name": "FORGERY", "meanings": ["counterfeit"] },
+  { "name": "WOO", "meanings": ["try to win"] },
+  { "name": "CORDIAL", "meanings": ["warm and sincere"] },
+  {
+    "name": "CUMBERSOME",
+    "meanings": ["burdensome", "heavy and awkward to carry"]
+  },
+  {
+    "name": "BEGUILE",
+    "meanings": ["mislead or delude", "cheat", "pass time"]
+  },
+  { "name": "RETROGRADE", "meanings": ["receding"] },
+  {
+    "name": "SHEATH",
+    "meanings": ["cover for the blade of a weapon or a tool"]
+  },
+  { "name": "BEWILDER", "meanings": ["puzzle", "confuse"] },
+  { "name": "KNIT", "meanings": ["draw together", "unite firmly"] },
+  { "name": "UNSCATHED", "meanings": ["unharmed unhurt"] },
+  { "name": "CHORTLE", "meanings": ["loud chuckle of pleasure or amusement"] },
+  { "name": "JABBER", "meanings": ["talk excitedly", "utter rapidly"] },
+  {
+    "name": "PIVOTAL",
+    "meanings": ["of great importance (others depend on it)"]
+  },
+  { "name": "IMPLOSION", "meanings": ["collapse", "bursting inward"] },
+  { "name": "REPEL", "meanings": ["refuse to accept/cause dislike"] },
+  { "name": "SUPERIMPOSE", "meanings": ["put something on the top"] },
+  { "name": "CENTURION", "meanings": ["leader of a unit of 100 soldiers"] },
+  { "name": "ENIGMA", "meanings": ["something that is puzzling"] },
+  {
+    "name": "CALIPERS",
+    "meanings": ["metal supports attached to the legs measuring instrument"]
+  },
+  { "name": "REDEEM", "meanings": ["get back by payment compensate"] },
+  { "name": "BUOYANT", "meanings": ["able to float", "light-hearted"] },
+  { "name": "IMPEDE", "meanings": ["hinder", "get in the way of"] },
+  { "name": "STRIDE", "meanings": ["walk with long steps"] },
+  { "name": "BOISTEROUS", "meanings": ["noisy", "restraint"] },
+  { "name": "RESUSCITATION", "meanings": ["coming back to consciousness"] },
+  { "name": "CONCUR", "meanings": ["agree in opinion happen together"] },
+  { "name": "RECITALS", "meanings": ["a number of performance of music"] },
+  { "name": "TREACHEROUS", "meanings": ["not to be trusted, perfidious"] },
+  { "name": "INDULGENT", "meanings": ["inclined to indulge"] },
+  {
+    "name": "PILFERER",
+    "meanings": ["to steal, especially in small quantities"]
+  },
+  { "name": "FOSTER", "meanings": ["nurture", "care for"] },
+  { "name": "APARTHEID", "meanings": ["brutal racial discrimination"] },
+  { "name": "GARRULOUS", "meanings": ["too talkative"] },
+  { "name": "EDIFY", "meanings": ["instruct", "correct morally"] },
+  { "name": "EVASIVE", "meanings": ["tending to evade"] },
+  { "name": "MISANTHROPE", "meanings": ["person who hates mankind"] },
+  { "name": "EULOGY", "meanings": ["formal praise panegyric"] },
+  { "name": "ARCANE", "meanings": ["known or understood by very few"] },
+  { "name": "BOGUS", "meanings": ["sham", "counterfeit", "not genuine"] },
+  { "name": "DEXTERITY", "meanings": ["skill (esp. in handling)"] },
+  { "name": "LAMPOON", "meanings": ["publicly mock or ridicule"] },
+  { "name": "SKIT", "meanings": ["short piece of humorous writing"] },
+  {
+    "name": "INCONGRUOUS",
+    "meanings": ["out of place", "not in harmony or agreement"]
+  },
+  { "name": "REPULSIVE", "meanings": ["causing a feeling of disgust"] },
+  { "name": "REFINE", "meanings": ["make or become pure cultural"] }
+]
