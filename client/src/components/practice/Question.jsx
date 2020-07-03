@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { PracticeContext } from './Practice';
+
 import { updateWordStats } from '../../apis/practice';
 
 const Question = (props) => {
   const [selected, setSelected] = useState(false);
   const [colors, setColors] = useState(['white', 'white', 'white', 'white']);
+  const { state, dispatch } = useContext(PracticeContext);
 
   useEffect(() => {
     setSelected(false);
@@ -27,10 +30,10 @@ const Question = (props) => {
 
       let tempColors = [...colors];
       if (correct === selected) {
-        updateWordStats(props.question.name, true);
+        updateWordStats(props.question.name, true, dispatch);
         tempColors[correct] = 'green';
       } else {
-        updateWordStats(props.question.name, false);
+        updateWordStats(props.question.name, false, dispatch);
         tempColors[selected] = 'red';
         setTimeout(() => {
           tempColors[correct] = 'green';

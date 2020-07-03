@@ -30,3 +30,47 @@
   cursor: pointer;
   background-color: white;
 }
+
+.CorrectOption {
+  background-color: green;
+  color: white;
+}
+.IncorrectOption {
+  background-color: red;
+  color: white;
+}
+
+/* EndSession */
+#brainIcon {
+  height: 25vh;
+  margin-top: 3%;
+}
+
+.SummaryHeader {
+  display: flex !important;
+  background-color: #dcd3d3;
+  border: 1px solid #6f6868;
+  height: 4vh;
+  font-size: 1.15em;
+  justify-content: center;
+  align-items: center;
+}
+
+.SummaryWords {
+  border: 1px solid #6f6868;
+}
+
+.attemptedWord {
+  margin: 4px !important;
+}
+
+.WordDefinitions {
+  padding-left: 3%;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.NewSessionButton {
+  background-color: #669deb !important;
+  color: white !important;
+}

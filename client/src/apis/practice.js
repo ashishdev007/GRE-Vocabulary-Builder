@@ -26,7 +26,9 @@ export const getQuestions = (dispatch) => {
     });
 };
 
-export const updateWordStats = (name, success) => {
+export const updateWordStats = (name, success, dispatch) => {
+  let type = success ? 'correct' : 'incorrect';
+  dispatch({ type: actionTypes.addAttempt, payload: { type, word: name } });
   fetch(`${backendURL}/word/attempt`, {
     method: 'POST',
     headers: {
@@ -34,16 +36,16 @@ export const updateWordStats = (name, success) => {
     },
     body: JSON.stringify({ name, success }),
   })
-    .then((res) => {
+    .then(async (res) => {
+      let response = await res.json();
       if (res.ok) {
-        return res.json();
+        return response;
       } else {
-        throw res.json();
+        throw response;
       }
     })
     .then((data) => {})
-    .catch(async (err) => {
-      let error = await err.json();
-      console.log(error);
+    .catch((err) => {
+      console.log(err);
     });
 };

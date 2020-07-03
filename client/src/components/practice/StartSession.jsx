@@ -39,7 +39,7 @@ const StartSession = () => {
   return (
     <React.Fragment>
       <h1>Please select number of questions.</h1>
-      {state.sessionLength !== 0 ? <Redirect to={`/practice`} /> : null}
+      {state.sessionLength !== 0 ? <Redirect to={`/practice/session`} /> : null}
       <ul>{generateOptions()}</ul>
     </React.Fragment>
   );

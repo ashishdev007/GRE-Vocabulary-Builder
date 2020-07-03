@@ -4,6 +4,7 @@ import history from '../../history';
 import StartSession from './StartSession';
 import { practiceReducer, initialState } from '../../reducers/practiceReducer';
 import MCQs from './MCQs';
+import EndSession from './EndSession';
 
 export const PracticeContext = React.createContext();
 
@@ -25,17 +26,21 @@ const Practice = (props) => {
           path={`${match.url}/start-session`}
           component={StartSession}
         />
+        <Route exact path={`${match.url}/session`} component={MCQs} />
       </Switch>
     );
   };
 
+  const content = () => {
+    if (state.sessionLength === 0) {
+      if (state.sessionEnded) return <EndSession />;
+      else return <StartSession />;
+    } else return <MCQs />;
+  };
+
   return (
     <PracticeContext.Provider value={contextValue}>
-      {state.sessionLength === 0 ? (
-        <Redirect to={`${match.url}/start-session`} />
-      ) : (
-        <MCQs />
-      )}
+      {content()}
       {switches()}
     </PracticeContext.Provider>
   );

@@ -1,9 +1,14 @@
 export const initialState = {
   sessionLength: 0,
   items: {
-    loading: false,
+    loading: true,
     questions: [],
   },
+  attempts: {
+    correct: [],
+    incorrect: [],
+  },
+  sessionEnded: false,
 };
 
 export const actionTypes = {
@@ -11,6 +16,8 @@ export const actionTypes = {
   loadingquestions: 'loadingquestions',
   questionsLoaded: 'questionsLoaded',
   endSession: 'endSession',
+  startNewSession: 'startNewSession',
+  addAttempt: 'addAttempt',
 };
 
 export const practiceReducer = (state, action) => {
@@ -30,7 +37,6 @@ export const practiceReducer = (state, action) => {
           loading: true,
         },
       };
-
     case actionTypes.questionsLoaded:
       return {
         ...state,
@@ -39,11 +45,23 @@ export const practiceReducer = (state, action) => {
           questions: [...state.items.questions, ...action.payload],
         },
       };
-    case actionTypes.endSession:
+    case actionTypes.addAttempt:
+      let { type, word } = action.payload;
       return {
         ...state,
-        ...initialState,
+        attempts: {
+          ...state.attempts,
+          [type]: [...state.attempts[type], word],
+        },
       };
+    case actionTypes.endSession:
+      return {
+        ...initialState,
+        attempts: state.attempts,
+        sessionEnded: true,
+      };
+    case actionTypes.startNewSession:
+      return { ...initialState };
     default:
       return state;
   }

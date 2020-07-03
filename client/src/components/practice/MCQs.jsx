@@ -29,7 +29,7 @@ const MCQs = () => {
       setQuestionNo(questionNo + 1);
       setButtonClass('ui primary large button disabled');
     } else {
-      dispatch(actionTypes.endSession);
+      dispatch({ type: actionTypes.endSession });
     }
   };
 
