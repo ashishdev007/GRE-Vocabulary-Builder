@@ -9,7 +9,9 @@ const wordSchema = new Schema({
         required: true},
     meanings:[
             {type: String, required: true}
-    ]
+    ],
+    attempts: {type: Number, default: 0},
+    successAttempts: {type: Number, default:0}
 }).plugin(random, {path: 'r'});
 
 module.exports = mongoose.model('Word', wordSchema);

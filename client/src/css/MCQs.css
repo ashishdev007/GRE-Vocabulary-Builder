@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+
+.ui.container {
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+}
+
+.ui.segment.option {
+  min-height: 5vh;
+  font-size: 1em;
+
+  transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+}
+
+#word {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Roboto Slab';
+  font-weight: 500;
+  font-size: 2.5em;
+}
+
+.optionBox {
+  margin: 3vh 0;
+}
+
+.MyOption {
+  cursor: pointer;
+  background-color: white;
+}
