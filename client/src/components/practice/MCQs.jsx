@@ -11,6 +11,9 @@ const MCQs = () => {
   const [question, setQuestion] = useState({});
   const [questionNo, setQuestionNo] = useState(0);
   const { state, dispatch } = useContext(PracticeContext);
+  const [buttonClass, setButtonClass] = useState(
+    'ui primary large button disabled'
+  );
   useEffect(() => {
     getQuestions(dispatch);
   }, []);
@@ -24,9 +27,14 @@ const MCQs = () => {
     if (state.items.questions.length > questionNo + 1) {
       setQuestion(state.items.questions[questionNo + 1]);
       setQuestionNo(questionNo + 1);
+      setButtonClass('ui primary large button disabled');
     } else {
       dispatch(actionTypes.endSession);
     }
+  };
+
+  const enableNextButton = () => {
+    setButtonClass('ui primary large button');
   };
 
   if (state.items.loading) {
@@ -38,8 +46,11 @@ const MCQs = () => {
           <div className="ui row">
             <div className="two wide column center aligned"></div>
             <div className="twelve wide column left aligned">
-              <Question question={question} />
-              <button className="ui primary large button" onClick={getNewWord}>
+              <Question
+                question={question}
+                enableNextButton={enableNextButton}
+              />
+              <button className={buttonClass} onClick={getNewWord}>
                 Next
               </button>
             </div>

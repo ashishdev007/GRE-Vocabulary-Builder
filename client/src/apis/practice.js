@@ -23,6 +23,27 @@ export const getQuestions = (dispatch) => {
     })
     .catch(async (err) => {
       console.log(err);
-      //   dispatch({ type: actionTypes.wordDoesntExist, payload: err });
+    });
+};
+
+export const updateWordStats = (name, success) => {
+  fetch(`${backendURL}/word/attempt`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, success }),
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw res.json();
+      }
+    })
+    .then((data) => {})
+    .catch(async (err) => {
+      let error = await err.json();
+      console.log(error);
     });
 };

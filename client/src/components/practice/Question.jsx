@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { updateWordStats } from '../../apis/practice';
 
 const Question = (props) => {
   const [selected, setSelected] = useState(false);
@@ -25,10 +26,11 @@ const Question = (props) => {
       }
 
       let tempColors = [...colors];
-      console.log(tempColors);
       if (correct === selected) {
+        updateWordStats(props.question.name, true);
         tempColors[correct] = 'green';
       } else {
+        updateWordStats(props.question.name, false);
         tempColors[selected] = 'red';
         setTimeout(() => {
           tempColors[correct] = 'green';
@@ -38,6 +40,7 @@ const Question = (props) => {
 
       setColors([...tempColors]);
       setSelected(true);
+      props.enableNextButton();
     }
   };
 
@@ -80,8 +83,6 @@ const Options = (props) => {
         );
       });
   };
-
-  console.log('Rerender');
 
   return <>{renderOptions(props)}</>;
 };
