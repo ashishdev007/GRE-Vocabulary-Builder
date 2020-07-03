@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { getNewWordDefs, addNewWord } from '../../apis/addword';
-// import { makeStyles } from '@material-ui/core/styles';
-import styles from '../../css/AddWord.module.css';
+import { errorsReducer, initialState } from '../../reducers/errorsReducer';
+import '../../css/AddWord.css';
 
 const AddWord = () => {
   const [word, setWord] = useState('');
-
   const [defs, setDefs] = useState([]);
   const [selections, setSelections] = useState([]);
+  const [success, setSuccess] = useState(false);
+  const [state, dispatch] = useReducer(errorsReducer, initialState);
 
   const getDefs = () => {
     let key = 0;
@@ -17,12 +18,14 @@ const AddWord = () => {
         key++;
         return (
           <div
-            className={`${styles.Definition} ui segment option`}
+            className={`Definition ui segment option`}
             key={key}
             onClick={(event) => {
+              event.stopPropagation();
               let style = event.target.style;
-
-              selectDef(item, style);
+              let { color, bgColor } = getSelectionStyle(item);
+              style.color = color;
+              style.backgroundColor = bgColor;
             }}
           >
             {item}
@@ -32,17 +35,20 @@ const AddWord = () => {
     }
   };
 
-  const selectDef = (def, style) => {
+  const getSelectionStyle = (def) => {
+    let color, bgColor;
     if (selections.includes(def)) {
-      style.color = 'rgba(0,0,0,.87)';
-      style.backgroundColor = 'white';
+      color = 'rgba(0,0,0,.87)';
+      bgColor = 'white';
       let updatedSelections = selections.filter((selected) => selected !== def);
       setSelections(updatedSelections);
     } else {
-      style.color = 'white';
-      style.backgroundColor = '#2185d0';
+      color = 'white';
+      bgColor = '#2185d0';
       setSelections([...selections, def]);
     }
+
+    return { color, bgColor };
   };
 
   return (
@@ -52,10 +58,12 @@ const AddWord = () => {
         onSubmit={(event) => {
           event.preventDefault();
           setDefs([]);
-          getNewWordDefs(setDefs, word);
+          setSuccess(false);
+          getNewWordDefs(setDefs, word, dispatch);
+          dispatch({ type: 'clearNewWordErrors' });
         }}
       >
-        <div className={`${styles.SearchForm} ui icon input`}>
+        <div className={`SearchForm ui icon input`}>
           <input
             type="text"
             placeholder="Search..."
@@ -68,63 +76,34 @@ const AddWord = () => {
       {defs.length === 0 ? null : (
         <div style={{ marginTop: '2%' }}>
           <p>Please choose a definition!</p>
-          <div className={`ui segments ${styles.Definitions}`}>{getDefs()}</div>
+          <div className={`ui segments Definitions}`}>{getDefs()}</div>
           <button
             className="ui inverted olive button"
-            onClick={() => addNewWord(word, selections)}
+            onClick={(event) => {
+              event.stopPropagation();
+              setDefs([]);
+              setWord([]);
+              addNewWord(word, selections, dispatch, setSuccess);
+            }}
           >
             Olive
           </button>
         </div>
       )}
+      {state.newWordErrors.exists ? (
+        <div className={`MessageContainer`}>
+          <i className={`ErrorIcon exclamation triangle icon`}></i>
+          <p>{state.newWordErrors.msg}</p>
+        </div>
+      ) : null}
+      {success ? (
+        <div className={`MessageContainer`}>
+          <i className={`SuccessIcon save outline icon`}></i>
+          <p>Successfully added your word!</p>
+        </div>
+      ) : null}
     </React.Fragment>
   );
 };
-
-// import Paper from '@material-ui/core/Paper';
-// import InputBase from '@material-ui/core/InputBase';
-// import Divider from '@material-ui/core/Divider';
-// import IconButton from '@material-ui/core/IconButton';
-// import SearchIcon from '@material-ui/icons/Search';
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     padding: '2px 4px',
-//     display: 'flex',
-//     alignItems: 'center',
-//     width: 400,
-//   },
-//   input: {
-//     marginLeft: theme.spacing(1),
-//     flex: 1,
-//   },
-//   iconButton: {
-//     padding: 10,
-//   },
-//   divider: {
-//     height: 28,
-//     margin: 4,
-//   },
-// }));
-
-// const AddWord = () => {
-//   const classes = useStyles();
-//   return (
-//     <div>
-
-//         <Paper component="form" className={styles.SearchForm} >
-//           <InputBase
-//             placeholder="Search your word"
-//             className={styles.SearchItem}
-//             value={'Hello'}
-//           />
-//           <IconButton type="submit">
-//             <SearchIcon />
-//           </IconButton>
-//         </Paper>
-
-//     </div>
-//   );
-// };
 
 export default AddWord;

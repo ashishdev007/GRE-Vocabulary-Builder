@@ -1,13 +1,19 @@
 import React from 'react';
-import styles from './css/App.module.css';
+import './css/App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import AddWord from './components/words/AddWord';
+import Practice from './components/practice/Practice.jsx';
+import history from './history';
 
 function App() {
   return (
-    <div className={styles.App}>
-      <AddWord />
-    </div>
+    <BrowserRouter history={history}>
+      <div className="App">
+        <Route exact path="/add-word" component={AddWord} />
+        <Route path="/practice" component={Practice} />
+      </div>
+    </BrowserRouter>
   );
 }
 
