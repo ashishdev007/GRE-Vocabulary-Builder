@@ -3,42 +3,52 @@ const RandGen = require('../utils/randomDoc');
 
 exports.getWord = (req, res, next)=>{
     words = {wordList:[]};
-    const number_of_questions = req.body.questions;
-    RandGen.generateRandom(number_of_questions)
-    .then(wordLst=>{
-        const questionList = wordLst.slice(0, number_of_questions);
-        const optionList = wordLst.slice(number_of_questions);
-        let i = 0;
-        let index = [0,1,2,3];
-        const opts = ["", "", "", ""];
-        words.wordList = questionList.map(wrd=>{
-            const rt = wrd.meanings[Math.floor(Math.random()*wrd.meanings.length)];
+    const number_of_questions =  Number(req.params.questions);
+    const total_retrival = number_of_questions * 3 + number_of_questions;
+    Word.countDocuments().then((docNum)=>{
+        if(docNum >= total_retrival){
+            RandGen.generateRandom(total_retrival)
+            .then(wordLst=>{
+                const questionList = wordLst.slice(0, number_of_questions);
+                const optionList = wordLst.slice(number_of_questions);
+                let i = 0;
+                let index = [0,1,2,3];
+                const opts = ["", "", "", ""];
+                words.wordList = questionList.map(wrd=>{
+                    const rt = wrd.meanings[Math.floor(Math.random()*wrd.meanings.length)];
             
-            //generates a random index to put the option in the opt array
-            let ind = Math.floor(Math.random()*index.length);
-            let k = index.splice(ind, 1);
+                    //generates a random index to put the option in the opt array
+                    let ind = Math.floor(Math.random()*index.length);
+                    let k = index.splice(ind, 1);
 
-            opts[k] = rt;
+                    opts[k] = rt;
 
-            let count = 1;
-            while(count <= 3){
-                const tempObj = optionList[i].meanings;
+                    let count = 1;
+                    while(count <= 3){
+                        const tempObj = optionList[i].meanings;
 
-                let ind = Math.floor(Math.random()*index.length)
-                let k = index.splice(ind, 1);
+                        let ind = Math.floor(Math.random()*index.length)
+                        let k = index.splice(ind, 1);
 
-                opts[k] = tempObj[Math.floor(Math.random()*tempObj.length)];
-                i++;
-                count++;
-            }
-            index = [0,1,2,3];
-            return {name: wrd.name, right:rt, options:[...opts]}
-        });
-        res.json(words);
+                        opts[k] = tempObj[Math.floor(Math.random()*tempObj.length)];
+                        i++;
+                        count++;
+                    }
+                    index = [0,1,2,3];
+                    return {name: wrd.name, right:rt, options:[...opts]}
+                });
+                res.json(words);
+            })
+            .catch(err=>{
+                console.log(err);
+                res.status(403).json({message: "Can't fetch the any word. Something went wrong."})
+            });
+        }else{
+            throw "err";
+        }
     })
     .catch(err=>{
-        console.log(err);
-        res.status(403).json({message: "Can't fetch the any word. Something went wrong."})
+        res.status(403).json({message:`You need at least ${total_retrival} words saved in your list to proceed for ${number_of_questions} questions`})
     });
 }
 
