@@ -9,7 +9,7 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const learnRoute = require("./Routers/learnRoute");
 const populateData = require("./utils/startPopulate");
 
-const Word = require('./Models/word');
+const Word = require("./Models/word");
 
 const app = express();
 
@@ -26,18 +26,18 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false,
   })
-  .then(connect => {
+  .then((connect) => {
     //return Word.find().remove(); //empty words collection
-    return Word.countDocuments()
+    return Word.countDocuments();
   })
-  .then(count=>{
-    if(count < 120){
+  .then((count) => {
+    if (count < 120) {
       return populateData.populateDB();
-    }else{
+    } else {
       return "Already populated!";
     }
   })
-  .then(success=> {
+  .then((success) => {
     app.listen(8000, () => {
       console.log("Running in 8000!");
     });
