@@ -38,7 +38,6 @@ export const addNewWord = (word, meanings, dispatch, setSuccess) => {
     body: JSON.stringify(data),
   })
     .then(async (res) => {
-      console.log('Lol');
       let response = await res.json();
       if (res.ok) {
         return response;
@@ -50,7 +49,6 @@ export const addNewWord = (word, meanings, dispatch, setSuccess) => {
       setSuccess(true);
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: actionTypes.wordAlreadyExist, payload: err.message });
     });
 };
