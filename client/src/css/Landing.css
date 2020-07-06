@@ -1,0 +1,23 @@
+#LandingContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#wordImage {
+  width: 35%;
+  margin: auto;
+}
+
+#LandingMsg {
+  margin-top: 5%;
+  font-size: 2em;
+  font-weight: 800;
+}
+
+#Salute {
+  margin-top: 10%;
+}
+
+#LoveImg {
+  height: 1em;
+}

@@ -12,14 +12,15 @@
 }
 
 .Definitions {
-  width: 50%;
+  width: 75%;
   margin: auto !important;
   margin-top: 2%;
+  margin-bottom: 2% !important;
   border: 1.25px solid rgba(34, 36, 38, 0.15) !important;
 }
 
 .Definition {
-  font-size: 1.25em !important;
+  font-size: 1.05em !important;
   font-weight: 300;
   cursor: pointer;
 }

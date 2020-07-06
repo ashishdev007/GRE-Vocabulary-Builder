@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { PracticeContext } from './Practice';
 import { actionTypes } from '../../reducers/practiceReducer';
-import history from '../../history';
-import { Redirect, useRouteMatch } from 'react-router-dom';
 
 const StartSession = () => {
   const { state, dispatch } = useContext(PracticeContext);
@@ -13,15 +11,15 @@ const StartSession = () => {
 
     while (no <= 30) {
       options.push(
-        <li key={no}>
-          <button
-            onClick={(event) => {
-              optionSelect(event.target.innerText);
-            }}
-          >
-            {no}
-          </button>
-        </li>
+        <div
+          className="ui button"
+          key={no}
+          onClick={(event) => {
+            optionSelect(event.target.innerText);
+          }}
+        >
+          {no}
+        </div>
       );
 
       no += 10;
@@ -39,8 +37,7 @@ const StartSession = () => {
   return (
     <React.Fragment>
       <h1>Please select number of questions.</h1>
-      {state.sessionLength !== 0 ? <Redirect to={`/practice/session`} /> : null}
-      <ul>{generateOptions()}</ul>
+      <div>{generateOptions()}</div>
     </React.Fragment>
   );
 };
