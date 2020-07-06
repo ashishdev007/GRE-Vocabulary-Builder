@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
 
+/* Start Session */
+.NoOfQuestions {
+  width: 8rem;
+  font-size: 1.15rem !important;
+  margin: 0 1rem !important;
+}
+
+.CustomNoOfQuestions {
+  margin-top: 2rem;
+}
+
+/* MCQs */
 .ui.container {
   margin-top: 5vh;
   margin-bottom: 1vh;

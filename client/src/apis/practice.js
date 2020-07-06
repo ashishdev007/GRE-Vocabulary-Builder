@@ -1,9 +1,9 @@
 import { backendURL } from './backend';
 import { actionTypes } from '../reducers/practiceReducer';
 
-export const getQuestions = (dispatch) => {
+export const getQuestions = (dispatch, noOfQuestions) => {
   dispatch({ type: actionTypes.loadingquestions });
-  fetch(`${backendURL}/practise/5`, {
+  fetch(`${backendURL}/practise/${noOfQuestions}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

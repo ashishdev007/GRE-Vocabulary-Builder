@@ -15,6 +15,7 @@ function App() {
         <NavBar />
         <Route exact path="/add-word" component={AddWord} />
         <Route path="/practice" component={Practice} />
+        <Route path="/profile" component={Practice} />
         <Route exact path="/" component={Landing} />
       </div>
     </BrowserRouter>

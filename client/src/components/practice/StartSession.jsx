@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { PracticeContext } from './Practice';
 import { actionTypes } from '../../reducers/practiceReducer';
 
 const StartSession = () => {
   const { state, dispatch } = useContext(PracticeContext);
+  const [customVal, setCustomVal] = useState('');
 
   const generateOptions = () => {
     let options = [];
@@ -12,7 +13,7 @@ const StartSession = () => {
     while (no <= 30) {
       options.push(
         <div
-          className="ui button"
+          className="ui button NoOfQuestions"
           key={no}
           onClick={(event) => {
             optionSelect(event.target.innerText);
@@ -35,10 +36,26 @@ const StartSession = () => {
   useEffect(() => {}, [state.sessionLength]);
 
   return (
-    <React.Fragment>
-      <h1>Please select number of questions.</h1>
-      <div>{generateOptions()}</div>
-    </React.Fragment>
+    <div style={{ marginTop: '5rem' }}>
+      <h1>Please select the number of words.</h1>
+      <div style={{ marginTop: '3rem' }}>{generateOptions()}</div>
+      <form
+        className="CustomNoOfQuestions"
+        onSubmit={(event) => {
+          event.preventDefault();
+          optionSelect(parseInt(customVal));
+        }}
+      >
+        <span style={{ fontSize: '1.2rem', fontWeight: '600' }}>Custom: </span>
+        <div class="ui input">
+          <input
+            type="text"
+            value={customVal}
+            onChange={(event) => setCustomVal(event.currentTarget.value)}
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 
