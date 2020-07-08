@@ -7,6 +7,7 @@ import Practice from './components/practice/Practice.jsx';
 import history from './history';
 import Landing from './components/Landing';
 import NavBar from './components/NavBar';
+import ProfilePage from './components/profile/ProfilePage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <NavBar />
         <Route exact path="/add-word" component={AddWord} />
         <Route path="/practice" component={Practice} />
-        <Route path="/profile" component={Practice} />
+        <Route path="/profile" component={ProfilePage} />
         <Route exact path="/" component={Landing} />
       </div>
     </BrowserRouter>
