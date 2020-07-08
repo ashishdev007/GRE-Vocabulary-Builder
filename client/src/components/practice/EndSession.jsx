@@ -3,6 +3,7 @@ import { PracticeContext } from './Practice';
 import GeneralModal from '../../modals/GeneralModal';
 import BrainIcon from '../../assets/brain.svg';
 import { actionTypes } from '../../reducers/practiceReducer';
+import { getMeaning } from '../../apis/practice';
 
 const EndSession = () => {
   const { state, dispatch } = useContext(PracticeContext);
@@ -22,15 +23,18 @@ const EndSession = () => {
     });
   };
 
-  const showWordDef = (word) => {
+  const showWordDef = async (word) => {
     let header = () => {
       return <span>{word}</span>;
     };
+    let meanings = await getMeaning(word);
+
     let content = () => {
       return (
         <ul className="WordDefinitions">
-          <li>Fruit</li>
-          <li>Computer</li>
+          {meanings.map((item) => {
+            return <li>{item}</li>;
+          })}
         </ul>
       );
     };

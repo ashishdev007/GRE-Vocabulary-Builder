@@ -49,3 +49,27 @@ export const updateWordStats = (name, success, dispatch) => {
       console.log(err);
     });
 };
+
+export const getMeaning = (word) => {
+  return fetch(`${backendURL}/meaning/${word}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let response = await res.json();
+      if (res.ok) {
+        return response;
+      } else {
+        throw response;
+      }
+    })
+    .then((data) => {
+      let meanings = data.meanings;
+      return meanings;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
