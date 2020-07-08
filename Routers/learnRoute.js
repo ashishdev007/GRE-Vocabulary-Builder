@@ -5,6 +5,7 @@ const fetchApi = require("../Controllers/fetchApi");
 
 router.get("/practise/:questions", learnerRoute.getWord);
 router.get("/word/:name", fetchApi.getMeaning);
+router.get("/meaning/:word", learnerRoute.getMeaning)
 
 router.post("/word", learnerRoute.postWord);
 router.post("/word/attempt", learnerRoute.postAttempt);
