@@ -1,0 +1,59 @@
+/* NewProfile */
+
+.SignUp {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.SignUp > h1 {
+  margin: 5% auto 2% !important;
+}
+
+.SignUp > form {
+  margin: auto;
+  width: 45%;
+}
+
+.SignUp > input {
+  font-size: 0.8em !important;
+}
+
+.NameField {
+  display: inline-block;
+  width: 49%;
+}
+
+#fname {
+  margin-right: 2% !important;
+}
+
+.SignUp > .authIcon {
+  margin: auto;
+  font-size: 10em;
+  margin-top: 10%;
+  color: #00b5ad;
+  margin-bottom: -2%;
+}
+
+.icon + .authPara {
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: 100;
+  font-family: lato;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.Login > h1 {
+  margin: 5% auto 2% !important;
+}
+
+.Login > form {
+  margin: auto;
+  width: 35%;
+}
