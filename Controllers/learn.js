@@ -59,16 +59,18 @@ exports.getWord = (req, res, next) => {
 };
 
 exports.getMeaning = (req, res, next) => {
-  const word = req.params.word;
+  const word = req.params.word.toUpperCase();
 
-  Word.findOne({name: word})
-  .then(wrd => {
-    res.status(200).json({meanings: wrd.meanings, id : wrd._id});
-  })
-  .catch(err=>{
-    res.status(403).json({message: `${word} doesn't exist in your word library!`});
-  })
-}
+  Word.findOne({ name: word })
+    .then((wrd) => {
+      res.status(200).json({ meanings: wrd.meanings, id: wrd._id });
+    })
+    .catch((err) => {
+      res
+        .status(403)
+        .json({ message: `${word} doesn't exist in your word library!` });
+    });
+};
 
 exports.postWord = (req, res, next) => {
   const wordName = req.body.word.trim().toUpperCase();
@@ -127,10 +129,10 @@ exports.postAttempt = (req, res, next) => {
 
 exports.delWord = (req, res, next) => {
   Word.findByIdAndRemove(req.body._id)
-  .then(result=> {
-    res.status(200).json({message: "Sucessfully deleted!"});
-  })
-  .catch(err=>{
-    res.status(403).json({message: "Somethign went wrong!"});
-  })
-}
+    .then((result) => {
+      res.status(200).json({ message: 'Sucessfully deleted!' });
+    })
+    .catch((err) => {
+      res.status(403).json({ message: 'Somethign went wrong!' });
+    });
+};

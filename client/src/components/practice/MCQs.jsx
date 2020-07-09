@@ -15,7 +15,7 @@ const MCQs = () => {
     'ui primary large button disabled'
   );
   useEffect(() => {
-    getQuestions(dispatch);
+    getQuestions(dispatch, state.sessionLength);
   }, []);
   useEffect(() => {
     if (state.items.questions.length > 0) {

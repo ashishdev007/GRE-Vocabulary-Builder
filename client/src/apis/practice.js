@@ -1,9 +1,9 @@
 import { backendURL } from './backend';
 import { actionTypes } from '../reducers/practiceReducer';
 
-export const getQuestions = (dispatch) => {
+export const getQuestions = (dispatch, noOfQuestions) => {
   dispatch({ type: actionTypes.loadingquestions });
-  fetch(`${backendURL}/practise/5`, {
+  fetch(`${backendURL}/practise/${noOfQuestions}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -45,6 +45,30 @@ export const updateWordStats = (name, success, dispatch) => {
       }
     })
     .then((data) => {})
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getMeaning = (word) => {
+  return fetch(`${backendURL}/meaning/${word}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let response = await res.json();
+      if (res.ok) {
+        return response;
+      } else {
+        throw response;
+      }
+    })
+    .then((data) => {
+      let meanings = data.meanings;
+      return meanings;
+    })
     .catch((err) => {
       console.log(err);
     });
