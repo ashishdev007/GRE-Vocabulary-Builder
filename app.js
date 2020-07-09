@@ -7,6 +7,7 @@ require("dotenv").config();
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ykdgy.gcp.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 const learnRoute = require("./Routers/learnRoute");
+const authRoute = require("./Routers/authRoute");
 const populateData = require("./utils/startPopulate");
 
 const Word = require("./Models/word");
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.use("/users", authRoute);
 app.use("/", learnRoute);
 
 //Database connection and server listener
