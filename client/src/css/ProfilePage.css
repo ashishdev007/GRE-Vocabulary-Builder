@@ -1,0 +1,41 @@
+.AvatarContainer {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 3% auto;
+}
+
+#Avatar {
+  height: 25vh;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+#EditAvatar {
+  position: absolute;
+  display: block;
+  left: 0%;
+  top: 80%;
+
+  background-color: #24292e !important;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.FlexedDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.ProfileFont {
+  font-size: 1.15em;
+}
+
+.UpdateButtons {
+  margin-top: 2%;
+}
