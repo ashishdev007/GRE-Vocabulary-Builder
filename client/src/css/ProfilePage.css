@@ -1,59 +1,41 @@
-/* NewProfile */
-
-.SignUp {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+.AvatarContainer {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 3% auto;
 }
 
-.SignUp > h1 {
-  margin: 5% auto 2% !important;
-}
-
-.SignUp > form {
-  margin: auto;
-  width: 45%;
-}
-
-.SignUp > input {
-  font-size: 0.8em !important;
-}
-
-.NameField {
+#Avatar {
+  height: 25vh;
+  border-radius: 50%;
   display: inline-block;
-  width: 49%;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
 }
 
-#fname {
-  margin-right: 2% !important;
+#EditAvatar {
+  position: absolute;
+  display: block;
+  left: 0%;
+  top: 80%;
+
+  background-color: #24292e !important;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-.SignUp > .authIcon {
-  margin: auto;
-  font-size: 10em;
-  margin-top: 10%;
-  color: #00b5ad;
-  margin-bottom: -2%;
-}
-
-.icon + .authPara {
-  margin: auto;
-  font-size: 1.5em;
-  font-weight: 100;
-  font-family: lato;
-}
-
-.Login {
+.FlexedDiv {
   display: flex;
-  flex-direction: column;
-  text-align: left;
+  justify-content: center;
+  margin-top: 2%;
 }
 
-.Login > h1 {
-  margin: 5% auto 2% !important;
+.ProfileFont {
+  font-size: 1.15em;
 }
 
-.Login > form {
-  margin: auto;
-  width: 35%;
+.UpdateButtons {
+  margin-top: 2%;
 }
