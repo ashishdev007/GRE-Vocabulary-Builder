@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import '../../css/Auth.css';
 import { AuthContext } from '../../App';
 import { checkFirstTimeUser } from '../../apis/authentication';
 import SignUp from './SignUp';
