@@ -44,7 +44,7 @@ exports.getWord = (req, res, next) => {
           .catch((err) => {
             console.log(err);
             res.status(403).json({
-              message: "Can't fetch the any word. Something went wrong.",
+              message: "Can't fetch any word. Something went wrong.",
             });
           });
       } else {

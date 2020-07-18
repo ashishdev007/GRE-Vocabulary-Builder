@@ -9,7 +9,13 @@ exports.postRegister = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  User.findOne({ email: email })
+  User.countDocuments().
+    then(count => {
+      if (count > 0) {
+        throw new Error("Only one user can sign up!");
+      }
+      return User.findOne({ email: email });
+    })
     .then((user) => {
       if (!user) {
         return bcrypt.hash(password, 12);
@@ -26,7 +32,7 @@ exports.postRegister = (req, res, next) => {
         .status(200)
         .json({
           message:
-            "Succefully registered! Please check your email for verifying.",
+            "Succefully registered!",
         });
     })
     .catch((err) => {
@@ -51,8 +57,8 @@ exports.postLogin = (req, res, next) => {
     })
     .then((doMatch) => {
       if (doMatch) {
-        const token = jwt.sign({id : usr._id}, process.env.JWT_SEC);
-        return res.status(200).json({ message: "Successfully logged in!", tkn : token });
+        const token = jwt.sign({ id: usr._id }, process.env.JWT_SEC);
+        return res.status(200).json({ id: usr._id, tkn: token });
       } else {
         throw new Error("Password doesn't match");
       }
@@ -62,22 +68,15 @@ exports.postLogin = (req, res, next) => {
     });
 };
 
-exports.verifyRegister = (req, res, next) => {
-    const token = req.params.token;
-    const decoded = jwt.verify(token, process.env.JWT_SEC);
-
-    User.findById(decoded.id)
-    .then(user => {
-        if(!user){
-            throw new Error("Something went wrong!");
-        }
-        user.authenticated = true;
-        return user.save();
-    })
-    .then(usr=>{
-        res.status(200).json({message: "User verified!"});
-    })
-    .catch(err=>{
-        res.status(403).json({message: "Something went wrong!"});
+exports.getUserCount = (req, res, next) => {
+  User.countDocuments()
+    .then(count => {
+      if (count > 0) {
+        return res.status(200).json({ message: false });
+      } else {
+        return res.status(200).json({ message: true });
+      }
+    }).catch(err => {
+      res.status(500).json({ message: err.message });
     })
 }

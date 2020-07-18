@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const multer = require('multer');
 const cors = require("cors");
 require("dotenv").config();
 
@@ -14,9 +15,28 @@ const Word = require("./Models/word");
 
 const app = express();
 
+const store = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'Images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString + "-" + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpeg') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
+app.use(multer({storage: store, fileFilter: fileFilter}).single('image'));
 
 app.use("/users", authRoute);
 app.use("/", learnRoute);
