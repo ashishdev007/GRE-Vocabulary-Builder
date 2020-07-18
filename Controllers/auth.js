@@ -80,3 +80,7 @@ exports.getUserCount = (req, res, next) => {
       res.status(500).json({ message: err.message });
     })
 }
+
+exports.prevLogin = (req, res, next) => {
+  res.status(200).json({message: true});
+}
