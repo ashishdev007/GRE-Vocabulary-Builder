@@ -14,12 +14,14 @@ export const actionTypes = {
 };
 
 export const authReducer = (state, action) => {
+  console.log(action);
+
   switch (action.type) {
     case actionTypes.loadingUser:
       return { ...state, isLoading: true };
 
     case actionTypes.userLoaded:
-      return { ...state, ...action.payload };
+      return { ...state, isLoading: false, ...action.payload };
 
     case actionTypes.logOut:
       return { ...state, ...initialState };

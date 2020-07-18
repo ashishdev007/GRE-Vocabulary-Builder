@@ -24,9 +24,9 @@ export const AuthFormLogic = (initialState) => {
 const Auth = () => {
   const { state, dispatch } = useContext(AuthContext);
 
-  useEffect(async () => {
-    await checkFirstTimeUser();
-  }, []);
+  // useEffect(async () => {
+  //   await checkFirstTimeUser();
+  // }, []);
 
   return <>{!state.firstTime ? <SignUp /> : <Login />}</>;
 };

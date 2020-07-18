@@ -33,7 +33,7 @@ const StartSession = () => {
     dispatch({ type: actionTypes.setSessionLength, payload: number });
   };
 
-  useEffect(() => {}, [state.sessionLength]);
+  // useEffect(() => {}, [state.sessionLength]);
 
   return (
     <div style={{ marginTop: '5rem' }}>

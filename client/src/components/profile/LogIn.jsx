@@ -1,23 +1,33 @@
 import React from 'react';
 import { AuthFormLogic } from './Auth';
+import { Login as LoginApi } from '../../apis/authentication';
+import { useContext } from 'react';
+import { AuthContext } from '../../App';
 
 const Login = () => {
-  const { state, setState, handleInputChange } = AuthFormLogic({
+  const FormLogic = AuthFormLogic({
     email: '',
     password: '',
     submitted: false,
   });
+  const LoginState = FormLogic.state;
+  const setLoginState = FormLogic.setState;
+  const handleInputChange = FormLogic.handleInputChange;
+
+  const { state, dispatch } = useContext(AuthContext);
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    // const { email, password, fname, lname } = state;
+    const { email, password } = LoginState;
 
-    setState({
+    setLoginState({
       email: '',
       password: '',
       submitted: true,
     });
+
+    LoginApi(email, password, dispatch);
   };
 
   return (
@@ -29,7 +39,7 @@ const Login = () => {
           <input
             type="text"
             name="email"
-            value={state.email}
+            value={LoginState.email}
             onChange={handleInputChange}
           />
         </div>
@@ -38,7 +48,7 @@ const Login = () => {
           <input
             type="password"
             name="password"
-            value={state.password}
+            value={LoginState.password}
             onChange={handleInputChange}
           />
         </div>

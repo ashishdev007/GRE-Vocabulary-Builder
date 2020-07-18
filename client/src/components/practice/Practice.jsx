@@ -12,7 +12,7 @@ const Practice = (props) => {
   let match = useRouteMatch();
   const [state, dispatch] = useReducer(practiceReducer, initialState);
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   const contextValue = useMemo(() => {
     return { state, dispatch };

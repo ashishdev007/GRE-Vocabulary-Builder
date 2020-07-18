@@ -13,7 +13,7 @@ import LoaderModal from './modals/LoaderModal';
 import { getUserFromToken } from './apis/authentication';
 import Auth from './components/profile/Auth';
 
-export const AuthContext = React.createContext(initialState);
+export const AuthContext = React.createContext();
 
 function App() {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -21,34 +21,36 @@ function App() {
     return { state, dispatch };
   }, [state, dispatch]);
 
-  useEffect(() => {
-    getUserFromToken(state.token, dispatch);
-  }, []);
+  // useEffect(() => {
+  //   // getUserFromToken(state.token, dispatch);
+  // }, []);
 
   const normalApp = () => {
     return (
-      <div className="App">
-        <NavBar />
-        <Route exact path="/add-word" component={AddWord} />
-        <Route path="/practice" component={Practice} />
-        <Route path="/profile" component={ProfilePage} />
-        <Route exact path="/" component={Landing} />
-      </div>
+      <BrowserRouter history={history}>
+        <div className="App">
+          <NavBar />
+          <Route exact path="/add-word" component={AddWord} />
+          <Route path="/practice" component={Practice} />
+          <Route path="/profile" component={ProfilePage} />
+          <Route exact path="/" component={Landing} />
+        </div>
+      </BrowserRouter>
     );
   };
 
+  console.log(state);
+
   return (
-    <BrowserRouter history={history}>
-      <AuthContext.Provider value={contextValue}>
-        {state.isLoading ? (
-          <LoaderModal />
-        ) : state.isValidated ? (
-          normalApp()
-        ) : (
-          <Auth />
-        )}
-      </AuthContext.Provider>
-    </BrowserRouter>
+    <AuthContext.Provider value={contextValue}>
+      {state.isLoading ? (
+        <LoaderModal />
+      ) : state.isValidated ? (
+        normalApp()
+      ) : (
+        <Auth />
+      )}
+    </AuthContext.Provider>
   );
 }
 
