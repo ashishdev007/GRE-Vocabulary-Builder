@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { AuthFormLogic } from './Auth';
+import { SingUp as signUpApi } from '../../apis/authentication';
+import { useContext } from 'react';
+import { AuthContext } from '../../App';
 
 const SignUp = () => {
   const { state, setState, handleInputChange } = AuthFormLogic({
@@ -10,9 +13,12 @@ const SignUp = () => {
     submitted: false,
   });
 
+  const context = useContext(AuthContext);
+
   const onSubmit = (event) => {
     event.preventDefault();
-    const { email, password, fname, lname } = state;
+    let { email, password, fname, lname } = state;
+    let name = fname + ' ' + lname;
 
     setState({
       email: '',
@@ -21,6 +27,8 @@ const SignUp = () => {
       lname: '',
       submitted: true,
     });
+
+    signUpApi(name, email, password, context.dispatch);
   };
 
   return (

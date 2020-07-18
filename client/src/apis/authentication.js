@@ -17,7 +17,7 @@ export const getUserFromToken = (token, dispatch) => {
 export const checkFirstTimeUser = () => {};
 
 export const Login = (email, password, dispatch) => {
-  // dispatch({ type: actionTypes.loadingUser });
+  dispatch({ type: actionTypes.loadingUser });
 
   fetch(`${backendURL}/users/login`, {
     method: 'POST',
@@ -65,8 +65,8 @@ export const SingUp = (name, email, password, dispatch) => {
     })
     .then((data) => {
       dispatch({
-        type: actionTypes.userLoaded,
-        payload: { isValidated: true, token: data.tkn },
+        type: actionTypes.isFirstTime,
+        payload: { firstTime: false },
       });
     })
     .catch((err) => {

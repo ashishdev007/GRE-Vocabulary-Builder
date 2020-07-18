@@ -28,7 +28,7 @@ const Auth = () => {
   //   await checkFirstTimeUser();
   // }, []);
 
-  return <>{!state.firstTime ? <SignUp /> : <Login />}</>;
+  return <>{state.firstTime ? <SignUp /> : <Login />}</>;
 };
 
 export default Auth;
